@@ -24,12 +24,12 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Solo el botón del carrito con el icono 🛒 */}
+        {/* Botón del carrito en fondo blanco */}
         <div className="flex items-center gap-3">
           <button
             onClick={toggleCart}
             aria-label="Abrir carrito"
-            className="relative flex items-center justify-center bg-sumi text-washi w-11 h-11 rounded-sm2 hover:bg-sumi/85 transition-colors text-lg"
+            className="relative flex items-center justify-center bg-white text-sumi w-11 h-11 rounded-sm2 border border-sumi/15 hover:bg-sumi/5 transition-colors text-lg shadow-sm"
           >
             🛒
             {itemCount > 0 && (
