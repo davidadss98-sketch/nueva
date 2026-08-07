@@ -11,7 +11,6 @@ export default function ProductModal({ product, isOpen, onClose }) {
   if (!isOpen || !product) return null;
 
   const handleAddToCart = () => {
-    // Añadimos el producto con la cantidad seleccionada
     for (let i = 0; i < quantity; i++) {
       addToCart(product);
     }
@@ -21,14 +20,14 @@ export default function ProductModal({ product, isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Fondo oscuro translúcido */}
+      {/* Fondo oscuro translúcido con prioridad alta */}
       <div
-        className="absolute inset-0 bg-sumi/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-sumi/60 backdrop-blur-sm z-40"
         onClick={onClose}
       />
 
-      {/* Tarjeta del Modal */}
-      <div className="relative bg-washi text-sumi w-full max-w-lg rounded-sm2 shadow-2xl overflow-hidden z-10 flex flex-col">
+      {/* Tarjeta del Modal flotando por encima de todo */}
+      <div className="relative bg-washi text-sumi w-full max-w-lg rounded-sm2 shadow-2xl overflow-hidden z-50 flex flex-col">
         {/* Botón de cierre */}
         <button
           onClick={onClose}
@@ -37,7 +36,7 @@ export default function ProductModal({ product, isOpen, onClose }) {
           ✕
         </button>
 
-        {/* Imagen del producto (si tiene) */}
+        {/* Imagen del producto */}
         {product.image && (
           <div className="w-full h-56 md:h-64 relative bg-sumi/10">
             <img
@@ -60,12 +59,10 @@ export default function ProductModal({ product, isOpen, onClose }) {
             </span>
           </div>
 
-          {/* Explicación / Descripción completa */}
           <p className="font-body text-sumi/80 text-sm leading-relaxed">
             {product.description || "Elaborado al momento con ingredientes frescos de la más alta calidad y carne 100% Wagyu."}
           </p>
 
-          {/* Selector de cantidad y botón */}
           <div className="flex items-center justify-between pt-4 border-t border-sumi/10 mt-2">
             <div className="flex items-center gap-3 font-mono">
               <span className="text-sm font-semibold text-sumi/60">Cantidad:</span>
