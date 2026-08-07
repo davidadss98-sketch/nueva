@@ -10,20 +10,23 @@ export default function MenuCard({ product }) {
   const addToCart = useCartStore((s) => s.addToCart);
   const openCart = useCartStore((s) => s.openCart);
 
+  const handleOpenModal = () => {
+    console.log("Intentando abrir modal para:", product.name);
+    setIsModalOpen(true);
+  };
+
   const handleAddDirect = (e) => {
-    e.stopPropagation(); // Evita que se abra el modal al hacer clic en el botón rápido
+    e.stopPropagation(); // Evita que se abra el modal al hacer clic en el botón
     addToCart(product);
     openCart();
   };
 
   return (
     <>
-      {/* Tarjeta del menú interactiva */}
       <div 
-        onClick={() => setIsModalOpen(true)}
+        onClick={handleOpenModal}
         className="flex flex-col bg-white/60 border border-sumi/10 rounded-sm2 overflow-hidden hover:border-hanko/40 transition-colors shadow-sm cursor-pointer"
       >
-        {/* Contenedor de la foto */}
         <div className="h-48 flex items-center justify-center bg-washi overflow-hidden">
           {product.image ? (
             <img
@@ -36,7 +39,6 @@ export default function MenuCard({ product }) {
           )}
         </div>
         
-        {/* Sección de texto */}
         <div className="flex flex-col flex-1 p-3.5 gap-1.5">
           <h3 className="font-display font-bold text-base">{product.name}</h3>
           <p className="font-body text-xs text-sumi/70 flex-1 line-clamp-2">
@@ -56,7 +58,6 @@ export default function MenuCard({ product }) {
         </div>
       </div>
 
-      {/* Modal de detalles del producto */}
       <ProductModal
         product={product}
         isOpen={isModalOpen}
