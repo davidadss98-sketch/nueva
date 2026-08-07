@@ -14,8 +14,16 @@ export default function MenuCard({ product }) {
 
   return (
     <div className="flex flex-col bg-white/60 border border-sumi/10 rounded-sm2 overflow-hidden hover:border-hanko/40 transition-colors">
-      <div className="h-36 flex items-center justify-center text-6xl bg-washi">
-        {product.emoji}
+      <div className="h-36 flex items-center justify-center bg-washi overflow-hidden">
+        {product.image ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <span className="text-6xl">{product.emoji}</span>
+        )}
       </div>
       <div className="flex flex-col flex-1 p-4 gap-2">
         <h3 className="font-display font-bold text-lg">{product.name}</h3>
