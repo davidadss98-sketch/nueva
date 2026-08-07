@@ -11,31 +11,43 @@ export default function MenuCard({ product }) {
   const openCart = useCartStore((s) => s.openCart);
 
   const handleAddDirect = (e) => {
-    e.stopPropagation(); // Evita que se abra el modal al dar clic al botón rápido
+    e.stopPropagation();
     addToCart(product);
     openCart();
   };
 
   return (
     <>
-      <div 
-        onClick={() => setIsModalOpen(true)}
-        className="flex flex-col bg-white/60 border border-sumi/10 rounded-sm2 overflow-hidden hover:border-hanko/40 transition-colors shadow-sm cursor-pointer active:scale-[0.98]"
-      >
-        <div className="h-48 flex items-center justify-center bg-washi overflow-hidden">
+      <div className="flex flex-col bg-white/60 border border-sumi/10 rounded-sm2 overflow-hidden hover:border-hanko/40 transition-colors shadow-sm">
+        {/* Contenedor de la foto (Al hacer clic aquí se abre el modal) */}
+        <div 
+          onClick={() => setIsModalOpen(true)}
+          className="h-48 flex items-center justify-center bg-washi overflow-hidden cursor-pointer relative group"
+        >
           {product.image ? (
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
             <span className="text-6xl">{product.emoji}</span>
           )}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+            <span className="opacity-0 group-hover:opacity-100 bg-sumi/80 text-washi text-xs px-3 py-1 rounded-full font-medium transition-opacity">
+              Ver detalles
+            </span>
+          </div>
         </div>
         
+        {/* Sección de texto */}
         <div className="flex flex-col flex-1 p-3.5 gap-1.5">
-          <h3 className="font-display font-bold text-base">{product.name}</h3>
+          <h3 
+            onClick={() => setIsModalOpen(true)}
+            className="font-display font-bold text-base cursor-pointer hover:text-hanko transition-colors"
+          >
+            {product.name}
+          </h3>
           <p className="font-body text-xs text-sumi/70 flex-1 line-clamp-2">
             {product.description}
           </p>
