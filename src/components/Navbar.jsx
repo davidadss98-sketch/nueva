@@ -13,7 +13,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-washi/95 backdrop-blur border-b border-sumi/10">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-5 py-3">
         <Link href="/" className="flex items-center gap-3">
-          <span className="hanko-seal">達</span>
+          <img src="/logo.jpeg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
           <span className="font-display font-bold text-lg tracking-tight">
             Daruma Burger
           </span>
