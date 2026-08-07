@@ -10,13 +10,8 @@ export default function MenuCard({ product }) {
   const addToCart = useCartStore((s) => s.addToCart);
   const openCart = useCartStore((s) => s.openCart);
 
-  const handleOpenModal = () => {
-    console.log("Intentando abrir modal para:", product.name);
-    setIsModalOpen(true);
-  };
-
   const handleAddDirect = (e) => {
-    e.stopPropagation(); // Evita que se abra el modal al hacer clic en el botón
+    e.stopPropagation(); // Evita que se abra el modal al dar clic al botón rápido
     addToCart(product);
     openCart();
   };
@@ -24,8 +19,8 @@ export default function MenuCard({ product }) {
   return (
     <>
       <div 
-        onClick={handleOpenModal}
-        className="flex flex-col bg-white/60 border border-sumi/10 rounded-sm2 overflow-hidden hover:border-hanko/40 transition-colors shadow-sm cursor-pointer"
+        onClick={() => setIsModalOpen(true)}
+        className="flex flex-col bg-white/60 border border-sumi/10 rounded-sm2 overflow-hidden hover:border-hanko/40 transition-colors shadow-sm cursor-pointer active:scale-[0.98]"
       >
         <div className="h-48 flex items-center justify-center bg-washi overflow-hidden">
           {product.image ? (
