@@ -1,4 +1,4 @@
-export const RESTAURANT_PHONE = "573000000000"; // TODO: reemplazar por el número real del local
+export const RESTAURANT_PHONE = "573112409005"; // TODO: reemplazar por el número real del local
 
 export const formatCOP = (value) =>
   value.toLocaleString("es-CO", {
