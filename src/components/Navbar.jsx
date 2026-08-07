@@ -12,9 +12,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-washi/95 backdrop-blur border-b border-sumi/10">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-5 py-3">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/logo.jpeg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
-          <span className="font-display font-bold text-lg tracking-tight">
+        <Link href="/" className="flex items-center gap-3.5">
+          <img 
+            src="/logo.jpeg" 
+            alt="Logo Daruma Burger" 
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm border border-sumi/10" 
+          />
+          <span className="font-display font-bold text-lg sm:text-xl tracking-tight">
             Daruma Burger
           </span>
         </Link>
