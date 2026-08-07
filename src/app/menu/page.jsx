@@ -1,5 +1,4 @@
 import MenuCard from "@/components/MenuCard";
-import Footer from "@/components/Footer";
 import { menuCategories, products } from "@/data/menuData";
 
 export const metadata = {
@@ -32,8 +31,6 @@ export default function MenuPage() {
           </section>
         );
       })}
-
-      <Footer />
     </>
   );
 }
