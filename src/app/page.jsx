@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import MenuCard from "@/components/MenuCard";
-import Footer from "@/components/Footer";
 import { products } from "@/data/menuData";
 
 export default function HomePage() {
@@ -37,8 +36,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }
