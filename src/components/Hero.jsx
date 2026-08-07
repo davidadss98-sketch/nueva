@@ -2,8 +2,20 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-sumi text-washi">
-      <div className="max-w-6xl mx-auto px-5 py-24 md:py-32 flex flex-col items-start gap-6">
+    <section className="relative bg-sumi text-washi overflow-hidden">
+      {/* Imagen de fondo con capa oscura para proteger la lectura del texto */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero-bg.jpeg"
+          alt="Daruma Burger"
+          className="w-full h-full object-cover opacity-40"
+        />
+        {/* Degradado para darle mejor contraste al texto */}
+        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/70 to-transparent" />
+      </div>
+
+      {/* Contenido principal por encima de la imagen */}
+      <div className="relative z-10 max-w-6xl mx-auto px-5 py-24 md:py-32 flex flex-col items-start gap-6">
         <span className="font-mono text-xs tracking-[0.2em] text-washi/60 uppercase">
           Daruma Burger · Bogotá
         </span>
