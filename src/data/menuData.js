@@ -17,7 +17,7 @@ export const products = [
   {
     id: "daruma-double",
     category: "burgers",
-    name: "Daruma Double ",
+    name: "Daruma Double",
     description: "Pan brioche, doble carne Wagyu (2 x 80 g), doble queso cheddar, lechuga, tomate y salsa Daruma. El sabor que hace única a Daruma Burger.",
     price: 100000,
     emoji: "🍔",
@@ -35,7 +35,7 @@ export const products = [
   {
     id: "daruma-double-bacon",
     category: "burgers",
-    name: "Daruma Double Bacon ",
+    name: "Daruma Double Bacon",
     description: "Doble carne Wagyu, doble cheddar, tocineta, lechuga, tomate y salsa Daruma. La hamburguesa más grande de la casa.",
     price: 110000,
     emoji: "🥓🍔",
@@ -84,7 +84,7 @@ export const products = [
     description: "Porción adicional de carne Wagyu.",
     price: 43000,
     emoji: "➕",
-    image: "",
+    image: "/extra-carne.jpeg",
   },
   {
     id: "extra-cheddar",
@@ -93,7 +93,7 @@ export const products = [
     description: "Porción extra de queso cheddar fundido.",
     price: 1500,
     emoji: "➕",
-    image: "",
+    image: "/extra-cheddar.jpeg",
   },
   {
     id: "extra-tocineta",
@@ -102,7 +102,7 @@ export const products = [
     description: "Tiras extra de tocineta ahumada crujiente.",
     price: 2000,
     emoji: "➕",
-    image: "",
+    image: "/extra-tocineta.jpeg",
   },
   {
     id: "extra-salsa",
@@ -111,6 +111,6 @@ export const products = [
     description: "Adición de nuestra salsa de la casa.",
     price: 1500,
     emoji: "➕",
-    image: "",
+    image: "/extra-salsa.jpeg",
   },
 ];
