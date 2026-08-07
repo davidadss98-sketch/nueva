@@ -3,15 +3,15 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative bg-sumi text-washi overflow-hidden">
-      {/* Imagen de fondo con capa oscura para proteger la lectura del texto */}
+      {/* Imagen de fondo */}
       <div className="absolute inset-0 z-0">
         <img
           src="/hero-bg.jpeg"
           alt="Daruma Burger"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover"
         />
-        {/* Degradado para darle mejor contraste al texto */}
-        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/70 to-transparent" />
+        {/* Capa oscura balanceada para asegurar la lectura del texto */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Contenido principal por encima de la imagen */}
