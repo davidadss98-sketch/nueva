@@ -1,6 +1,5 @@
 export const menuCategories = [
   { id: "burgers", name: "Hamburguesas" },
-  { id: "sides", name: "Acompañantes" },
   { id: "drinks", name: "Bebidas" },
   { id: "extras", name: "Extras" },
 ];
@@ -41,15 +40,6 @@ export const products = [
     price: 38000,
     emoji: "🥓🍔",
     image: "/daruma-double-bacon.jpeg",
-  },
-  {
-    id: "papas-francesas",
-    category: "sides",
-    name: "Papas Francesas",
-    description: "Papas doradas y crujientes.",
-    price: 10000,
-    emoji: "🍟",
-    image: "/papas.jpeg",
   },
   {
     id: "coca-cola-original",
