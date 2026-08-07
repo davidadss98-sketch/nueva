@@ -20,14 +20,14 @@ export default function ProductModal({ product, isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Fondo oscuro translúcido con prioridad alta */}
+      {/* Fondo oscuro translúcido */}
       <div
         className="absolute inset-0 bg-sumi/60 backdrop-blur-sm z-40"
         onClick={onClose}
       />
 
-      {/* Tarjeta del Modal flotando por encima de todo */}
-      <div className="relative bg-washi text-sumi w-full max-w-lg rounded-sm2 shadow-2xl overflow-hidden z-50 flex flex-col">
+      {/* Tarjeta del Modal */}
+      <div className="relative bg-washi text-sumi w-full max-w-lg rounded-sm2 shadow-2xl overflow-hidden z-50 flex flex-col max-h-[90vh]">
         {/* Botón de cierre */}
         <button
           onClick={onClose}
@@ -38,7 +38,7 @@ export default function ProductModal({ product, isOpen, onClose }) {
 
         {/* Imagen del producto */}
         {product.image && (
-          <div className="w-full h-56 md:h-64 relative bg-sumi/10">
+          <div className="w-full h-48 sm:h-64 relative bg-sumi/10 shrink-0">
             <img
               src={product.image}
               alt={product.name}
@@ -48,44 +48,46 @@ export default function ProductModal({ product, isOpen, onClose }) {
         )}
 
         {/* Contenido detallado */}
-        <div className="p-6 flex flex-col gap-4">
+        <div className="p-5 sm:p-6 flex flex-col gap-3 overflow-y-auto">
           <div className="flex justify-between items-start gap-4">
             <div>
-              <span className="text-3xl mb-1 inline-block">{product.emoji}</span>
-              <h2 className="font-display font-bold text-2xl">{product.name}</h2>
+              <span className="text-2xl sm:text-3xl mb-1 inline-block">{product.emoji}</span>
+              <h2 className="font-display font-bold text-xl sm:text-2xl">{product.name}</h2>
             </div>
-            <span className="font-mono font-bold text-lg text-hanko">
+            <span className="font-mono font-bold text-base sm:text-lg text-hanko">
               {formatCOP(product.price)}
             </span>
           </div>
 
-          <p className="font-body text-sumi/80 text-sm leading-relaxed">
+          <p className="font-body text-sumi/80 text-xs sm:text-sm leading-relaxed">
             {product.description || "Elaborado al momento con ingredientes frescos de la más alta calidad y carne 100% Wagyu."}
           </p>
 
-          <div className="flex items-center justify-between pt-4 border-t border-sumi/10 mt-2">
-            <div className="flex items-center gap-3 font-mono">
-              <span className="text-sm font-semibold text-sumi/60">Cantidad:</span>
+          <div className="flex items-center justify-between pt-3 border-t border-sumi/10 mt-1 gap-2">
+            <div className="flex items-center gap-2 sm:gap-3 font-mono">
+              <span className="text-xs sm:text-sm font-semibold text-sumi/60">Cant:</span>
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-8 h-8 rounded-sm2 border border-sumi/20 flex items-center justify-center hover:border-hanko font-bold"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm2 border border-sumi/20 flex items-center justify-center hover:border-hanko font-bold text-sm"
               >
                 −
               </button>
-              <span className="text-base font-bold w-4 text-center">{quantity}</span>
+              <span className="text-sm sm:text-base font-bold w-4 text-center">{quantity}</span>
               <button
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-8 h-8 rounded-sm2 border border-sumi/20 flex items-center justify-center hover:border-hanko font-bold"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm2 border border-sumi/20 flex items-center justify-center hover:border-hanko font-bold text-sm"
               >
                 +
               </button>
             </div>
 
+            {/* Botón adaptable: En celular dice "Añadir", en PC muestra el precio total */}
             <button
               onClick={handleAddToCart}
-              className="bg-hanko text-washi font-semibold px-6 py-3 rounded-sm2 hover:bg-hanko/90 transition-colors text-sm shadow-md"
+              className="bg-hanko text-washi font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-sm2 hover:bg-hanko/90 transition-colors text-xs sm:text-sm shadow-md whitespace-nowrap"
             >
-              Añadir • {formatCOP(product.price * quantity)}
+              <span className="inline sm:hidden">Añadir ({quantity})</span>
+              <span className="hidden sm:inline">Añadir • {formatCOP(product.price * quantity)}</span>
             </button>
           </div>
         </div>
